@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Couleurs fun JavaScript</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="input-group">
+        <label for="color1"></label>
+        <input type="color" id="color1" class="hex1" />
+      </div>
+      <div class="input-group">
+        <label for="color2"></label>
+        <input type="color" id="color2" class="hex2" />
+      </div>
+      <div class="range-group">
+        <label for="orientation"></label>
+        <span>Orientation:</span>
+        <span class="orientation-value">90°</span>
+        <input
+          type="range"
+          id="orientation"
+          min="0°"
+          max="360°"
+          value="90°"
+          class="inp-range"
+        />
+      </div>
+      <div class="buttons-container">
+        <button type="button" class="btn-copy">
+          <span>Copier</span>
+        </button>
+        <button type="button" class="btn-random">
+          <span>Random</span>
+        </button>
+      </div>
+    </div>
 
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
