@@ -58,3 +58,33 @@ function colorinputEdit(e) {
   gradientData.colors[currentIndex] = currentInput.value.toUpperCase();
   populateUI();
 }
+
+const copyBtn = document.querySelector(".btn-copy");
+copyBtn.addEventListener("click", handleCopyGradient);
+
+let lock = false;
+function handleCopyGradient() {
+  const gradient = `linear-gradient(${gradientData.angle}deg,${gradientData.colors[0]},${gradientData.colors[1]})`;
+  navigator.clipboard.writeText(gradient);
+
+  if (lock) return;
+
+  lock = true;
+  copyBtn.classList.add("active");
+
+  setTimeout(() => {
+    copyBtn.classList.remove("active");
+    lock = false;
+  }, 1000);
+}
+
+const randomGradientBtn = document.querySelector(".btn-random");
+randomGradientBtn.addEventListener("click", createRandomGradient);
+
+function createRandomGradient() {
+  for (i = 0; i < colorLabels.length; i++) {
+    const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+    gradientData.colors[i] = randomColor;
+    populateUI();
+  }
+}

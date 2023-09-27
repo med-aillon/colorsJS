@@ -66,6 +66,7 @@ input[type="range"] {
   justify-content: center;
 }
 .buttons-container button {
+  cursor: pointer;
   font-size: 20px;
   min-width: 150px;
   padding: 15px 0;
@@ -77,4 +78,38 @@ input[type="range"] {
 }
 .btn-random {
   margin-left: 30px;
+}
+
+.btn-copy {
+  position: relative;
+}
+
+.btn-copy::after {
+  content: "Copié !";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  padding: 15px;
+  border-radius: 5px;
+  background: #f1f1f1;
+  bottom: -75%;
+  left: 50%;
+  transform: translate(-50%, 30px);
+  white-space: nowrap;
+  opacity: 0;
+}
+.btn-copy.active::after {
+  animation: fade-out 1s ease-out forwards;
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
 }
